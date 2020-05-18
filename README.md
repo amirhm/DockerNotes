@@ -9,7 +9,7 @@ docker [management category] command
 ## Running a container
 
 to run a container:
-```
+```bash
 docker container run
 
 options:
@@ -60,7 +60,7 @@ dokcer container inspect --format '{{....}}'
 where, format used to filter our the output (or just pipe to grep)
 
 To get a list of all netwroks:
-```
+```bash
 docker network ls : lis all the networks
 docker network ls
 NETWORK ID          NAME                DRIVER              SCOPE
@@ -69,7 +69,7 @@ NETWORK ID          NAME                DRIVER              SCOPE
 c0ee13a6ce57        none                null                local: nothing connected
 ```
 or creat a network:
-```
+```bash
 docker network create blabla
 docker network ls
 NETWORK ID          NAME                DRIVER              SCOPE
@@ -80,13 +80,13 @@ c0ee13a6ce57        none                null                local
 ```
 
 similarly the ipect command could be used with network as well to see the configuration of the network
-```
+```bash
 docker network inspect : 
 ```
 
 and connect / disconnect to connect a container to a network:
 
-```
+```bash
 docker network connect / disconnect
 ```
 
@@ -178,27 +178,30 @@ run -v /path to host location:/path/in/container
 
 ## Docker-compose
 
+Similar to dockerfile for building an images, we could use compose files for multi-containers. docker-compose. yml files are used for defining and running multi-container Docker applications, whereas Dockerfiles are simple text files that contain the commands to assemble an image that will be used to deploy containers. services are actually the containers here.
+
 example: 
 
 ```yml 
 version: '2' 
 services:
     drupal:
-        image: custom-drupal # Just name anything , could be skipped  
-    build: . # this means just build the image from the same dir that has a DockerFile. The "." indicates the dockerfile exists in the same directory as the compose file. 
-    ports:
-        - "8080:80" 
-    volumes:
-        - drupal-modules:/var/www/html/modules 
-        - drupal-profiles:/var/www/html/profiles 
-        - drupal-sites:/var/www/html/sites 
-        - drupal-themes:/var/www/html/themes 
+        image: custom-drupal # name is not important here, could be skipped  
+        build: . # this means just build the image from the same dir that has a DockerFile. 
+    #The "." indicates the dockerfile exists in the same directory as the compose file. 
+        ports:
+            - "8080:80" 
+        volumes:
+            - drupal-modules:/var/www/html/modules 
+            - drupal-profiles:/var/www/html/profiles 
+            - drupal-sites:/var/www/html/sites 
+            - drupal-themes:/var/www/html/themes 
     postgres:
         image: postgres:12.1 
-    environment:
-        - POSTGRES_PASSWORD=mypasswd 
-    volumes:
-        - drupal-data:/var/lib/postgresql/data 
+        environment:
+            - POSTGRES_PASSWORD=mypasswd 
+        volumes:
+            - drupal-data:/var/lib/postgresql/data 
 
 volumes:
 drupal-data:
