@@ -23,7 +23,7 @@ On newer versions we have the possibility to use the ssh connections to replace 
 ````
 
 in both cases these endpoint configs could be added to docker contexts:
-
+[all these are true for the kubernetes as well]
 ````
 docker context create --docker "host=tcp://..." [conext_name]
 or 
@@ -31,7 +31,15 @@ docker context create --docker "host=ssh://u@ip" name
 ````
 and after we could use the `docker context ls` to see all the context and `docker context use [context name ]` to switch to the available deamons
 
+to overwrite the context we can use the `-c` or `--context`
+```
+docker -c default ps
+or 
+docker -c home ps
 
+
+
+```
 
 
 
