@@ -1,6 +1,10 @@
 # Notes for Docker and Kubernetes
 
 - [Docker](docker.md#Docker)
-    + [DockerFile](docker.md#DockerFile-and-build)
+    + [DockerFile](docker.md#Docker)
+    + [Docker Security](docker.md#Docker-Security)
+    + [Remote deamon connection](remote_deamon_connection.md#Docker-contexts)
+    + [SSH Config](ssh_public_key_config.md)
+    
 - [Docker Swarm](swarm.md#Docker-swarm)
 - [Kubernetes](Kubernetes.md#Kubernetes)
