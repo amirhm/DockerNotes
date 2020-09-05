@@ -1,5 +1,9 @@
 # Notes for Docker and Kubernetes
 
+
+Repository of cheetsheet and notes regarding docker and orchesterstion (swarm, kubernetes). most notes here are from the udemy course [docker mastery](https://www.udemy.com/course/docker-mastery/)
+
+
 - [Docker](docker.md#Docker)
     + [DockerFile](docker.md#Docker)
     + [Docker Security](DockerSecurity.md#Docker-Security)
