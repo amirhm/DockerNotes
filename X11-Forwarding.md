@@ -32,3 +32,10 @@ to add the local connections to acees control list of x server
 ````
 docker run  --rm -it -e DISPLAY=$DISPLAY --net="host" ubuntu
 ````
+
+## Windows as a host
+
+Similar steps, just recommened to install [vcxsrv](https://github.com/ArcticaProject/vcxsrv) (instead of xming)
+1. then run the xhost +local:root on host
+2. now either pass the DISPLAY envirounemt variable as [host-ip]:0.0 or set it inside the container
+
