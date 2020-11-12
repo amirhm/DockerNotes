@@ -39,3 +39,10 @@ Similar steps, just recommened to install [vcxsrv](https://github.com/ArcticaPro
 1. then run the xhost +local:root on host
 2. now either pass the DISPLAY envirounemt variable as [host-ip]:0.0 or set it inside the container
 
+
+### ssh x11 forwarding problem on windows:
+
+In windows setting the DISPLAY env make a problem with ssh_askpass, the workarounf would be to create an object on C (\dev\tty)
+mkdir \dev
+echo x > \dev\tty
+then if the DiSPLAY is set on windows side (setx DISPLAY=localhost:0.0) ssh -Y option should work.
